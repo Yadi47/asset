@@ -14,11 +14,13 @@ class CreateCalibrationsTable extends Migration
     public function up()
     {
         Schema::create('calibrations', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name');
             $table->string('file_name');
-            
+
+            $table->unsignedBigInteger('asset_id');
+            $table->foreign('asset_id')->references('id')->on('assets');
         });
     }
 

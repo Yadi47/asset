@@ -14,7 +14,7 @@ class CreateTypeTable extends Migration
     public function up()
     {
         Schema::create('type', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name');
             $table->text('description');
